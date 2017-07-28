@@ -14,7 +14,7 @@ type TrabajoGrado struct {
 	Titulo             string              `orm:"column(titulo)"`
 	Modalidad          *Modalidad          `orm:"column(modalidad);rel(fk)"`
 	EstadoTrabajoGrado *EstadoTrabajoGrado `orm:"column(estado_trabajo_grado);rel(fk)"`
-	Distincion         *Distincion         `orm:"column(distincion);rel(fk)"`
+	Distincion         *Distincion         `orm:"column(distincion);rel(fk);null"`
 }
 
 func (t *TrabajoGrado) TableName() string {
@@ -49,7 +49,7 @@ func GetTrabajoGradoById(id int) (v *TrabajoGrado, err error) {
 func GetAllTrabajoGrado(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(TrabajoGrado))
+	qs := o.QueryTable(new(TrabajoGrado)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

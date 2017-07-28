@@ -7,12 +7,12 @@ INSERT INTO polux.estado_solicitud VALUES (3, 'Aprobada', 'La solicitud fue eval
 
 INSERT INTO polux.tipo_solicitud VALUES (1, 'Solicitud de carta de presentación ante la empresa', 'Solicitud de carta de presentación ante la empresa que realiza el estudiante el proyecto', 'SCPAE', true);
 INSERT INTO polux.tipo_solicitud VALUES (2, 'Solicitud inicial', 'Primera solicitud que realiza un estudiante para escoger una modalidad ', 'SI', true);
-INSERT INTO polux.tipo_solicitud VALUES (3, 'Solicitud de cancelación de Modalidad de trabajo d', 'SOlicitud por la cual el estudiante cancela la modalidad de grado y el trabajo de grado ', 'SCM', true);
+INSERT INTO polux.tipo_solicitud VALUES (3, 'Solicitud de cancelación de Modalidad', 'SOlicitud por la cual el estudiante cancela la modalidad de grado y el trabajo de grado ', 'SCM', true);
 INSERT INTO polux.tipo_solicitud VALUES (4, 'Solicitud de cambio de director interno', 'Solicitud por medio de la cual se gestiona el cambio del director interno del trabajo de grado', 'SCDI', true);
 INSERT INTO polux.tipo_solicitud VALUES (5, 'Solicitud de cambio de director externo', 'Solicitud por medio de la cual se realiza la  gestión para cambiar el director externo de un trabajo de grado.', 'SCDE', true);
 INSERT INTO polux.tipo_solicitud VALUES (6, 'Solicitud de socialización', 'Solicitud por medio de la cual el estudiante solicita espacio para realizar la socialización de su trabajo de grado', 'SSO', true);
 INSERT INTO polux.tipo_solicitud VALUES (7, 'Solicitud de prórroga', 'Solicitud por la cual el estudiante pide una prórroga para socializar o terminaro su proyecto de grado', 'SPR', true);
-INSERT INTO polux.tipo_solicitud VALUES (8, 'Solicitud de modificación de datos del Trabajo de ', 'Solicitud por medio del cual el estudiante pide que sean modificados datos de su trabajo de gado.', 'SMDTG', true);
+INSERT INTO polux.tipo_solicitud VALUES (8, 'Solicitud de modificación de datos del Trabajo', 'Solicitud por medio del cual el estudiante pide que sean modificados datos de su trabajo de gado.', 'SMDTG', true);
 INSERT INTO polux.tipo_solicitud VALUES (9, 'Solicitud de cambio de materia', 'Solicitud por medio de la cual un estudiante con modalidad de materias de posgrado o profundización solicita que se cambie alguna de las materias solicitadas', 'SCMA', true);
 INSERT INTO polux.tipo_solicitud VALUES (11, 'Solicitud de distinción (meritorio, laureado) ', 'Solicitud por medio de la cual el estudiante pide que su trabajo de grado sea distinguido', 'SDTG', true);
 INSERT INTO polux.tipo_solicitud VALUES (10, 'Solicitud de cambio de evaluador(es)', 'Solicitud por medio de la cual el estudiatne pide que el evaluador del trabajo de grado sea cambiado', 'SCE', true);

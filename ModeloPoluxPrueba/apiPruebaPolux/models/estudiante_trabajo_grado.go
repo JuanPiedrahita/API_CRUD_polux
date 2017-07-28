@@ -48,7 +48,7 @@ func GetEstudianteTrabajoGradoById(id int) (v *EstudianteTrabajoGrado, err error
 func GetAllEstudianteTrabajoGrado(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(EstudianteTrabajoGrado))
+	qs := o.QueryTable(new(EstudianteTrabajoGrado)).RelatedSel();
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

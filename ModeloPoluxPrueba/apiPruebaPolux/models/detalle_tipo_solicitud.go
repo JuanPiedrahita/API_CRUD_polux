@@ -49,7 +49,7 @@ func GetDetalleTipoSolicitudById(id int) (v *DetalleTipoSolicitud, err error) {
 func GetAllDetalleTipoSolicitud(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(DetalleTipoSolicitud))
+	qs := o.QueryTable(new(DetalleTipoSolicitud)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
