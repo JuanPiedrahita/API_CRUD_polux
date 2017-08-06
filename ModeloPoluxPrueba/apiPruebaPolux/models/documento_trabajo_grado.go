@@ -47,7 +47,7 @@ func GetDocumentoTrabajoGradoById(id int) (v *DocumentoTrabajoGrado, err error) 
 func GetAllDocumentoTrabajoGrado(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(DocumentoTrabajoGrado))
+	qs := o.QueryTable(new(DocumentoTrabajoGrado)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

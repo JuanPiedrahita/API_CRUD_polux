@@ -52,7 +52,7 @@ func GetVinculacionTrabajoGradoById(id int) (v *VinculacionTrabajoGrado, err err
 func GetAllVinculacionTrabajoGrado(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(VinculacionTrabajoGrado))
+	qs := o.QueryTable(new(VinculacionTrabajoGrado)).RelatedSel();
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
