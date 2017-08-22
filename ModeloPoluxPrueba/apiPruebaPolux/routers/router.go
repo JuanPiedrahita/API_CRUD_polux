@@ -321,6 +321,11 @@ func init() {
 				&controllers.EntidadController{},
 			),
 		),
+		beego.NSNamespace("/tr_solicitud",
+			beego.NSInclude(
+				&controllers.TrSolicitudController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
