@@ -1927,6 +1927,14 @@ func init() {
 			MethodParams: param.Make(),
 			Params: nil})
 
+	beego.GlobalControllerRouter["github.com/JuanPiedrahita/Polux/ModeloPoluxPrueba/apiPruebaPolux/controllers:TrSolicitudController"] = append(beego.GlobalControllerRouter["github.com/JuanPiedrahita/Polux/ModeloPoluxPrueba/apiPruebaPolux/controllers:TrSolicitudController"],
+		beego.ControllerComments{
+			Method: "Post",
+			Router: `/`,
+			AllowHTTPMethods: []string{"post"},
+			MethodParams: param.Make(),
+			Params: nil})
+
 	beego.GlobalControllerRouter["github.com/JuanPiedrahita/Polux/ModeloPoluxPrueba/apiPruebaPolux/controllers:TrabajoGradoController"] = append(beego.GlobalControllerRouter["github.com/JuanPiedrahita/Polux/ModeloPoluxPrueba/apiPruebaPolux/controllers:TrabajoGradoController"],
 		beego.ControllerComments{
 			Method: "Post",
