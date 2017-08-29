@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.8.2-beta" last-position="0,73" last-zoom="0.75"
+<dbmodel pgmodeler-ver="0.8.2-beta" last-position="1088,4" last-zoom="0.75"
 	 default-owner="postgres">
 <database name="new_database">
 </database>
@@ -178,10 +178,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="text" length="500"/>
 		<comment><![CDATA[correccion que se realiza en una revision a un documento]]></comment>
 	</column>
-	<column name="justificacion">
-		<type name="text" length="5000"/>
-		<comment><![CDATA[Campo que almacena la justificacion que se realiza de la correcion]]></comment>
-	</column>
 	<column name="pagina">
 		<type name="numeric" length="4" precision="0"/>
 		<comment><![CDATA[Pagina del docuento en la que se debe hacer la correcion]]></comment>
@@ -192,7 +188,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="revision" index="4"/>
+		<object name="revision" index="3"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -203,7 +199,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="comentario">
 	<schema name="polux"/>
 	<comment><![CDATA[comentarios que se realizan sobre una correccion de una revision de un documento]]></comment>
-	<position x="120" y="1540"/>
+	<position x="109.333" y="1485.33"/>
 	<column name="id" not-null="true">
 		<type name="serial"/>
 		<comment><![CDATA[identificador de la tabla]]></comment>
@@ -259,7 +255,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 	<customidxs object-type="constraint">
 		<object name="fk_espacios_academicos_elegibles_espacio_academico_inscrito" index="1"/>
-		<object name="fk_estado_espacio_academico_inscrito_espacio_academico_i_4947" index="2"/>
+		<object name="fk_estado_espacio_academico_inscrito_espacio_academico_i_5642" index="2"/>
 		<object name="fk_trabajo_grado_espacio_academico_inscrito" index="3"/>
 	</customidxs>
 </table>
@@ -353,7 +349,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="usuario" not-null="true">
 		<type name="integer" length="15" precision="0"/>
-		<comment><![CDATA[identificación del docente relacionado con el trabajo de grado (academica: ACDOCENTE)]]></comment>
+		<comment><![CDATA[identificación del docente relacionado con el trabajo de grado (academica: ACDOCENTE) se trae de autenticacion unica]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying"/>
+		<comment><![CDATA[Nombre del usuario que se vincula al trabajo de grado.]]></comment>
 	</column>
 	<column name="activo" not-null="true" default-value="true">
 		<type name="boolean"/>
@@ -373,8 +373,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 
 	<customidxs object-type="column">
-		<object name="rol_trabajo_grado" index="5"/>
-		<object name="trabajo_grado" index="6"/>
+		<object name="rol_trabajo_grado" index="6"/>
+		<object name="trabajo_grado" index="7"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
@@ -529,7 +529,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="evaluacion">
 	<schema name="polux"/>
 	<comment><![CDATA[almacena la evaluación de la sustentación de un trabajo de grado]]></comment>
-	<position x="960" y="1820"/>
+	<position x="973.333" y="1833.33"/>
 	<column name="id" not-null="true">
 		<type name="serial"/>
 		<comment><![CDATA[identificador de la evaluación]]></comment>
@@ -640,6 +640,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="integer" length="10" precision="0"/>
 		<comment><![CDATA[Codigo de la entidad ]]></comment>
 	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="250"/>
+		<comment><![CDATA[Nombre de la entidad]]></comment>
+	</column>
 	<column name="entidad_relacionada">
 		<type name="integer"/>
 		<comment><![CDATA[Entidad a la cual se puede relacionar otra entidad]]></comment>
@@ -648,6 +652,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<columns names="id" ref-type="src-columns"/>
 		<comment><![CDATA[constraint primary key entidad]]></comment>
 	</constraint>
+
+	<customidxs object-type="column">
+		<object name="tipo_identificacion" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fk_tipo_identificacion_entidad" index="2"/>
+	</customidxs>
 </table>
 
 <table name="estudiante_trabajo_grado">
@@ -834,7 +846,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="formato_evaluacion_carrera">
 	<schema name="polux"/>
 	<comment><![CDATA[tabla que relaciona los registros del formato de evaluacion dependiendo del proyecto curricular]]></comment>
-	<position x="1300" y="2060"/>
+	<position x="1300" y="2058.67"/>
 	<column name="id" not-null="true">
 		<type name="serial"/>
 		<comment><![CDATA[Identificador de la tabla formato_evaluacion_carrera]]></comment>
@@ -1153,7 +1165,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<column name="usuario" not-null="true">
 		<type name="integer"/>
-		<comment><![CDATA[Código que identifica al usuario que realiza la solicitud.]]></comment>
+		<comment><![CDATA[Código que identifica al usuario que realiza la solicitud, se trae de autenticacion unica]]></comment>
 	</column>
 	<constraint name="pk_usuario_solicitud" type="pk-constr" factor="100" table="polux.usuario_solicitud">
 		<columns names="id" ref-type="src-columns"/>
@@ -1355,7 +1367,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="detalle_tipo_solicitud">
 	<schema name="polux"/>
 	<comment><![CDATA[Tabla que relaciona cada uno de los detalles que puede tener una solicitud que se realiza dentro de una modalidad de trabajo de grado]]></comment>
-	<position x="460" y="640"/>
+	<position x="481.333" y="632"/>
 	<column name="id" not-null="true">
 		<type name="serial"/>
 		<comment><![CDATA[Identificador de la relacion entre el detalle la modalidad y el tipo de solicitud]]></comment>
@@ -1367,6 +1379,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="requerido" not-null="true">
 		<type name="boolean"/>
 		<comment><![CDATA[Indica si el campo es obligatorio para la solicitud]]></comment>
+	</column>
+	<column name="numero_orden" not-null="true">
+		<type name="integer"/>
+		<comment><![CDATA[Numero en el que aparecera el detalle en el formulario.]]></comment>
 	</column>
 	<constraint name="pk_detalle_tipo_solicitud" type="pk-constr" factor="100" table="polux.detalle_tipo_solicitud">
 		<columns names="id" ref-type="src-columns"/>
@@ -1705,7 +1721,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 custom-color="#13bda4"
 	 src-table="polux.trabajo_grado"
 	 dst-table="polux.vinculacion_trabajo_grado"
-	 src-required="true" dst-required="false"/>
+	 src-required="true" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
 
 <relationship name="vinculacion_docente_has_many_evaluacion" type="rel1n"
 	 src-col-pattern="{st}"
@@ -1897,7 +1917,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="polux"/>
 	<role name="postgres"/>
 	<comment><![CDATA[Tabla que permite almacenar los diferentes tipos de distinciones que puede tener un trabajo de grado]]></comment>
-	<position x="1820" y="1000"/>
+	<position x="1818.67" y="1004"/>
 	<column name="id" not-null="true">
 		<type name="serial"/>
 		<comment><![CDATA[Identificador de la tabla distincion]]></comment>
@@ -1911,7 +1931,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<comment><![CDATA[Campo que permite almacenar una pequeña descripcion de la disticion qeu se otorga]]></comment>
 	</column>
 	<column name="codigo_abreviacion">
-		<type name="smallint"/>
+		<type name="character varying" length="20"/>
 		<comment><![CDATA[Abreviacion del nombrede la distincion]]></comment>
 	</column>
 	<column name="activo" not-null="true">
@@ -2234,9 +2254,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="polux.entidad"
 	 src-required="false" dst-required="false">
 	<line>
-		<position x="2415" y="197.36"/>
-	<position x="2415" y="150"/>
-	<position x="2316.67" y="150"/>
+		<position x="2515" y="202.96"/>
+	<position x="2515" y="150"/>
+	<position x="2383.33" y="150"/>
 	</line>
 </relationship>
 

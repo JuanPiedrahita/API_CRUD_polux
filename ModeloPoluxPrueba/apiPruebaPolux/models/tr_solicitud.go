@@ -24,7 +24,7 @@ func AddTransaccionSolicitud(m *TrSolicitud) (alerta []string, err error) {
 			if _, err = o.Insert(&v); err != nil {
 				err = o.Rollback()
 				alerta[0] = "Error"
-				alerta = append(alerta, "Ocurrio un error al insertar los detalles de la solicitud.")
+				alerta = append(alerta, "ERROR_SOLICITUDES_1")
 			}
 		}
 
@@ -33,7 +33,7 @@ func AddTransaccionSolicitud(m *TrSolicitud) (alerta []string, err error) {
 			if _, err = o.Insert(&j); err != nil {
 				err = o.Rollback()
 				alerta[0] = "Error"
-				alerta = append(alerta, "Ocurrio un error al insertar los usuarios de la solicitud.")
+				alerta = append(alerta, "")
 			}
 		}
 		err = o.Commit()
